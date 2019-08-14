@@ -13,7 +13,7 @@ setup(
     version=__version__,
     description=description,
     author='Jonghak Choi',
-    author_email='jhchoi@neon.net',
+    author_email='haginara@gmail.com',
     long_description=long_description,
     packages=['ldap_backend'],
     install_requires=install_requires,
