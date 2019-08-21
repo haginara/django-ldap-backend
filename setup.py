@@ -5,7 +5,6 @@ with open("ldap_backend/__init__.py") as f:
     exec(f.read(), None, _locals)
 version = _locals["__version__"]
 
-version = _locals["__version__"]
 description = "LDAP Backend for Django"
 long_description = description
 install_requires=[
