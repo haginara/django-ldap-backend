@@ -1,6 +1,11 @@
 from setuptools import setup
-from ldap_backend import __version__
 
+_locals = {}
+with open("ldap_backend/__init__.py") as f:
+    exec(f.read(), None, _locals)
+version = _locals["__version__"]
+
+version = _locals["__version__"]
 description = "LDAP Backend for Django"
 long_description = description
 install_requires=[
@@ -10,7 +15,7 @@ install_requires=[
 
 setup(
     name='django-ldap-backend',
-    version=__version__,
+    version=version,
     description=description,
     author='Jonghak Choi',
     author_email='haginara@gmail.com',
