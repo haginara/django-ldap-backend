@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 _locals = {}
 with open("ldap_backend/__init__.py") as f:
@@ -6,7 +6,9 @@ with open("ldap_backend/__init__.py") as f:
 version = _locals["__version__"]
 
 description = "LDAP Backend for Django"
-long_description = description
+with open("README.md", "r") as f:
+    long_description = f.read()
+
 install_requires=[
     'django >= 1.2.7',
     'ldap3', 
@@ -19,14 +21,19 @@ setup(
     author='Jonghak Choi',
     author_email='haginara@gmail.com',
     long_description=long_description,
-    packages=['ldap_backend'],
+    long_description_content_type='text/markdown',
+    packages=find_packages(),
+    package_data={
+        '': ['README.md', 'LICENSE'],
+    },
     install_requires=install_requires,
     classifiers=[
-        'Development Status :: 3 - 3.6',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: MIT License',
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.6",
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
         'Topic :: Software Development :: Libraries :: Python Modules',
+        'Intended Audience :: Developers',
     ],
 )
