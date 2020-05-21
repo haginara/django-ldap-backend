@@ -9,7 +9,7 @@ from django.core.cache import cache
 from django.core.exceptions import ImproperlyConfigured, ObjectDoesNotExist
 import django.dispatch
 
-from ldap_backend.ldap import LdapUser, LdapServer, LDAP_SERVER
+from ldap_backend.ldap import LdapUser, LdapServer
 import logging
 
 
