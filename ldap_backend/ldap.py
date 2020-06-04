@@ -126,12 +126,12 @@ class UserAccountControl(object):
 
 
 class LdapServer(object):
-    ldap = ServerPool(None, FIRST)
-    prefix = None
-    bind_dn = None
-    error_msg = None
 
     def __init__(self, prefix, base_dn, use_ssl=True, connect_timeout=5):
+        self.ldap = ServerPool(None, FIRST)
+        self.prefix = None
+        self.bind_dn = None
+        self.error_msg = None
         self._use_ssl = use_ssl
         self._connect_timeout = connect_timeout
         self.prefix = prefix
@@ -181,7 +181,6 @@ class LdapServer(object):
 
 
 class LdapUser(object):
-    ldap_server = None
 
     def __init__(self, ldap_server, username):
         self.ldap_server = ldap_server
