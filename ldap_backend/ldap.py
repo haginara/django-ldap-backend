@@ -154,7 +154,7 @@ class LdapServer(object):
         self.ldap.add(server)
 
     def searchfilter(self, uid):
-        return "(sAMAccountName={uid})".format(uid=uid)
+        return f"(sAMAccountName={uid})"
 
     @classmethod
     def setup(cls, prefix, base_dn, servers):
@@ -164,7 +164,7 @@ class LdapServer(object):
         return ldap_server
 
     def connect(self, username, password, **kwargs):
-        ldap_username = "%s\\%s" % (self.prefix, username)
+        ldap_username = f"{self.prefix}\\{username}"
         conn = Connection(
             self.ldap,
             user=ldap_username,
@@ -190,7 +190,7 @@ class LdapUser(object):
         self._conn = None
 
     def __repr__(self):
-        return "<%s> %s" % (self.__class__.__name__, self._username)
+        return f"<{self.__class__.__name__}> {self._username}"
 
     def __str__(self):
         return self.__repr__()
